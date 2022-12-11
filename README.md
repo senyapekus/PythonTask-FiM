@@ -105,3 +105,20 @@
 
 ![image](https://user-images.githubusercontent.com/92165711/206901292-b8376b57-4b00-4385-b108-32859076f0d7.png)
 
+- Цикл for
+
+Для того, чтобы определить начало цикла нужно написать:
+
+> I did this <до какого числа будет запущен цикл> times!
+
+Чтобы указать окончание цикла, пишем:
+
+> That's what I did.
+
+- Пример программы с циклом for
+
+![image](https://user-images.githubusercontent.com/92165711/206901600-2daef1de-7028-4a54-a73e-89f604d85047.png)
+
+Этот код на python:
+
+![image](https://user-images.githubusercontent.com/92165711/206901624-d6c929d3-4b6f-4dea-8dd5-81fc7d0c7c3a.png)
