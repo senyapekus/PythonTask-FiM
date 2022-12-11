@@ -122,3 +122,16 @@
 Этот код на python:
 
 ![image](https://user-images.githubusercontent.com/92165711/206901624-d6c929d3-4b6f-4dea-8dd5-81fc7d0c7c3a.png)
+
+- Увеличение/ уменьшение переменной (-= / +=)
+
+> <название переменной> got/had <цифра> more/less 
+
+- Пример программы с уменьшением переменной
+
+![image](https://user-images.githubusercontent.com/92165711/206902552-e5fe74c8-96eb-41b9-a9e7-df239e8e0db8.png)
+
+Тот же код на python:
+
+![image](https://user-images.githubusercontent.com/92165711/206902568-9e95db1b-9648-47c4-9f5d-a235bce64d73.png)
+
