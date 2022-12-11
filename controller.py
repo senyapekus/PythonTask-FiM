@@ -2,7 +2,6 @@ import os
 from tkinter import *
 import tkinter as tk
 import compiler
-import subprocess
 
 
 class Controller:
@@ -24,10 +23,10 @@ class Controller:
 
         self.entry_text = self.view.entry.get('1.0', tk.END)
 
-        with open("example.fimpp", "w", encoding='utf8') as fimpp_file:
+        with open(self.model.text_file, "w", encoding='utf8') as fimpp_file:
             fimpp_file.write(self.entry_text)
 
-        compiler.Compiler("example.fimpp")
+        compiler.Compiler(self.model.text_file)
 
         answer_greeting.pack()
 
