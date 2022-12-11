@@ -60,10 +60,15 @@
 Как определить разные знаки сравнения:
 
 > was like    =>    ==
+> 
 > was not like    =>    !=
+> 
 > had more than    =>    >
+> 
 > had less than    =>    <
+> 
 > had the same or more than    =>    >=
+> 
 > had the same or less than    =>    <=
 
 - Вывод на экран (print())
@@ -71,7 +76,9 @@
 Для того, чтобы вывести что-то на экран командой print() используйте:
 
 > I sang "что выводить"
+> 
 > I wrote "что выводить"
+> 
 > I said "что выводить"
 
 Для подстановки ранее введенного значения в функцию print() используйте:
@@ -92,26 +99,38 @@
 
 - Пример простой программы с условиями и выводом на экран
 
-< Dear Princess Celestia: Hello World!
+Dear Princess Celestia: Hello World!
+
 
 Today I learned how to say Hello World!
+
 Did you know that hello is "Hello world"?
+
 When hello was like "Hello world"
+
 I sang "Hello is hello world"
+
 I tried something else.
+
 I wrote "Hello is not hello world"
+
 That's what I did.
+
 I said "''hello''"
+
 That’s all about how to say Hello World!
 
-Your faithful student, Twilight Sparkle. >
+
+Your faithful student, Twilight Sparkle.
+
 
 В python это будет выглядеть так:
 
-< if __name__ == '__main__':
+
+if __name__ == '__main__':
     hello = "Hello world"
     if hello == "Hello world":
         print("Hello is hello world")
     else:
         print("Hello is not hello world")
-    print("%s" % hello) >
+    print("%s" % hello) 
