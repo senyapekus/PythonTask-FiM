@@ -8,7 +8,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        model = Model('прив')
+        model = Model("example.fimpp")
 
         view = View(self)
 
