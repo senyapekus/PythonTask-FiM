@@ -99,30 +99,7 @@
 
 - Пример простой программы с условиями и выводом на экран
 
-Dear Princess Celestia: Hello World!
-
-
-Today I learned how to say Hello World!
-
-Did you know that hello is "Hello world"?
-
-When hello was like "Hello world"
-
-I sang "Hello is hello world"
-
-I tried something else.
-
-I wrote "Hello is not hello world"
-
-That's what I did.
-
-I said "''hello''"
-
-That’s all about how to say Hello World!
-
-
-Your faithful student, Twilight Sparkle.
-
+![image](https://user-images.githubusercontent.com/92165711/206901319-99e5b553-a31b-4731-a59b-ca31ba2c5655.png)
 
 В python это будет выглядеть так:
 
