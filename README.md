@@ -71,7 +71,15 @@
 > 
 > had the same or less than    =>    <=
 
-- Вывод на экран (print())
+Блок else задается как:
+
+> I tried something else.
+
+Конец блока if/else определяется командой:
+
+> That's what I did.
+
+- Вывод на экран (print()). Вывод работает только с кавычками! То есть print("что-то").
 
 Для того, чтобы вывести что-то на экран командой print() используйте:
 
@@ -88,14 +96,6 @@
 В python это будет выглядеть так:
 
 > print("%s" % <название переменной>)
-
-Блок else задается как:
-
-> I tried something else.
-
-Конец блока if/else определяется командой:
-
-> That's what I did.
 
 - Пример простой программы с условиями и выводом на экран
 
@@ -152,3 +152,11 @@
 На python:
 
 ![image](https://user-images.githubusercontent.com/92165711/206903116-0cd92a33-20ee-4ee6-b56a-c319bab68b00.png)
+
+- Явное приведение типов
+
+> Did you know that <название переменной> is/likes (<тип приведения>) <значение переменной>?
+
+В python строка "Did you know that hello is (int) 3?" будет выглядеть как:
+
+> hello = int(3)
