@@ -147,7 +147,7 @@
 
 - Пример программы с функциями:
 
-![image](https://user-images.githubusercontent.com/92165711/206903072-2072db69-9011-4ace-b252-b98db84ae24a.png)
+![image](https://user-images.githubusercontent.com/92165711/206905143-69e6e450-d403-4cf1-a7a4-703d288c945c.png)
 
 На python:
 
