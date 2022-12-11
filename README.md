@@ -126,11 +126,5 @@ Your faithful student, Twilight Sparkle.
 
 В python это будет выглядеть так:
 
+![image](https://user-images.githubusercontent.com/92165711/206901292-b8376b57-4b00-4385-b108-32859076f0d7.png)
 
-if __name__ == '__main__':
-    hello = "Hello world"
-    if hello == "Hello world":
-        print("Hello is hello world")
-    else:
-        print("Hello is not hello world")
-    print("%s" % hello) 
