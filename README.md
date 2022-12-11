@@ -135,3 +135,20 @@
 
 ![image](https://user-images.githubusercontent.com/92165711/206902568-9e95db1b-9648-47c4-9f5d-a235bce64d73.png)
 
+- Пример создания функции с аргументами/без
+
+Без аргументов:
+
+> That's about <название функции>!
+
+С аргументами:
+
+> That's about <название функции> with <название аргументов через запятую>!
+
+- Пример программы с функциями:
+
+![image](https://user-images.githubusercontent.com/92165711/206903072-2072db69-9011-4ace-b252-b98db84ae24a.png)
+
+На python:
+
+![image](https://user-images.githubusercontent.com/92165711/206903116-0cd92a33-20ee-4ee6-b56a-c319bab68b00.png)
