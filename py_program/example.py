@@ -1,14 +1,29 @@
+def function1(arg1, arg2, arg3):
+    print(arg3)
+
+
+def function2():
+    print("Hello, I'm without arguments")
+
+
 if __name__ == '__main__':
     hello = 3
+    raritu = []
+    raritu.append("cake")
+    raritu.append("cookie")
     if hello == "Hello world":
-        for i in range(0, 99):
+        while hello > 2:
             print("Hello is hello world")
         print("priv")
+    elif hello != 3:
+        food = raritu[0]
+        print("elif")
     else:
+        # this is else block
+        function2()
+        function1("Steve", "Mary", "Lada")
+        hello *= 15
         print("Hello is not hello world")
         hello -= 2
-    print("%s" % hello)
-def Function1(Arg1, Arg2, Arg3):
-    print("Arg1")
-def Function2():
-    print("Hello, I'm without arguments")
+    print(hello)
+    print(raritu[0])
