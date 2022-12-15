@@ -232,3 +232,12 @@
 - Комментарии
 
 > P.S. <ваш комментарий>
+
+
+- Финальный пример программы на FiM
+
+![image](https://user-images.githubusercontent.com/92165711/207975063-911b2925-8fca-4557-a5ac-79ce44e1db43.png)
+
+Он же на Python
+
+![image](https://user-images.githubusercontent.com/92165711/207975289-28e3ab57-1df1-405e-a2a1-f4ad8dc92b92.png)
