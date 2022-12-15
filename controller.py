@@ -26,7 +26,10 @@ class Controller:
         with open(self.model.text_file, "w", encoding='utf8') as fimpp_file:
             fimpp_file.write(self.entry_text)
 
-        compiler.Compiler(self.model.text_file)
+        try:
+            compiler.Compiler(self.model.text_file)
+        except Exception as e:
+            self.answ = e
 
         answer_greeting.pack()
 
@@ -60,8 +63,11 @@ class Controller:
         result_window.geometry('460x300')
         result_window.title('Ответ')
 
-        pipe = os.popen("python py_program/example.py")
-        res = pipe.read()
+        try:
+            pipe = os.popen("python py_program/example.py")
+            res = pipe.read()
+        except Exception:
+            res = "Ошибка выполнения"
 
         answer_greeting = Label(result_window,
                                 text="\nПришел ответ на ваше письмо:\n",
