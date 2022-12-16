@@ -1,6 +1,8 @@
 import os.path
 import re
 
+has_breakpoint = False
+
 
 class Compiler:
     def __init__(self, fim_file):
@@ -19,10 +21,17 @@ class Compiler:
             raise Exception("Invalid file!")
 
     def compile(self):
+        global has_breakpoint
         with open("py_program/{}".format(self.get_compiled_file_name()), "w") as compiled_file:
             for line in self._text_lines:
+                if "    b" in line:
+                    has_breakpoint = True
+                    line = line.replace('    b', '')
+                    self._compiled_lines.append("%sbreakpoint()" % self.get_count_tabs())
+
                 self._count_line += 1
                 line_compiled = self.compile_line(line, self._count_line)
+
                 if line_compiled != "" and not self._compile_dirs["in_func"]:
                     self._compiled_lines.append(line_compiled)
                 if self._compile_dirs["in_func"]:
@@ -35,6 +44,14 @@ class Compiler:
                 raise Exception("End your letter with \"Your faithful student, Your Name\"!")
 
             compiled_file.writelines(["%s\n" % line for line in self._compiled_lines])
+
+        if has_breakpoint:
+            with open("py_program/example_debug.py", "w") as compiled_debug_file:
+                for line in self._compiled_lines:
+                    if 'breakpoint()' not in line:
+                        compiled_debug_file.write(line + '\n')
+                    else:
+                        break
 
     def get_compiled_file_name(self):
         return self._fim_file.replace(".fimpp", ".py")
@@ -97,8 +114,6 @@ class Compiler:
         match = re.search(r'(.*) ([0-9]+) is (.*)', line)
         if match:
             self._list_elem_count += 1
-            print(self._list_elem_count)
-            print(match.group(2))
             if self._list_elem_count == int(match.group(2)):
                 return "%s%s.append(%s)" % (self.get_count_tabs(), match.group(1), match.group(3))
             else:
@@ -110,7 +125,7 @@ class Compiler:
                 self.add_tabs_level()
             if self._compile_dirs["in_func"]:
                 self._count_func += 1
-            print(match.group(3))
+
             return "%sprint(%s[%s])" % (self.get_count_tabs(), match.group(2), int(match.group(3))-1)
 
         match = re.search(r'I remember (.*) name ([0-9]+) as (.*)', line)
