@@ -40,3 +40,5 @@ class View(ttk.Frame):
         self.controller = controller
 
         self.do_work_button.configure(command=self.controller.start_program)
+        self.entry.bind('<Double-Button-1>', self.controller.set_breakpoint)
+        self.entry.bind('<Button-3>', self.controller.delete_breakpoint)
