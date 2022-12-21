@@ -11,7 +11,7 @@ class Compiler:
         self._compiled_lines = []
         self._count_func = -1
         self._compile_dirs = {"nesting": 0, "in_func": False, "in_class": False}
-        self._compile_flags = {"has_main": False, "has_end": False}
+        self.compile_flags = {"has_main": False, "has_end": False}
         if os.path.exists(fim_file):
             self._fim_file = fim_file
             with open(fim_file, "r", encoding='utf8') as file:
@@ -22,7 +22,16 @@ class Compiler:
 
     def compile(self):
         global has_breakpoint
-        with open("py_program/{}".format(self.get_compiled_file_name()), "w") as compiled_file:
+
+        file_name = self.get_compiled_file_name()
+        if "test_" in file_name:
+            to_open = "{}".format(os.path.abspath(file_name)).replace("test", "py_program", 1)
+        else:
+            to_open = "py_program/{}".format(self.get_compiled_file_name())
+
+        print(to_open)
+
+        with open(to_open, "w") as compiled_file:
             for line in self._text_lines:
                 if "    b" in line:
                     has_breakpoint = True
@@ -37,10 +46,10 @@ class Compiler:
                 if self._compile_dirs["in_func"]:
                     self._compiled_lines.insert(self._count_func, line_compiled)
 
-            if not self._compile_flags['has_main']:
+            if not self.compile_flags['has_main']:
                 raise Exception("Start main-function with \"Today I learned\"!")
 
-            if not self._compile_flags['has_end']:
+            if not self.compile_flags['has_end']:
                 raise Exception("End your letter with \"Your faithful student, Your Name\"!")
 
             compiled_file.writelines(["%s\n" % line for line in self._compiled_lines])
@@ -77,7 +86,7 @@ class Compiler:
             self._compile_dirs["in_class"] = True
 
         if "Today I learned" in line:
-            self._compile_flags['has_main'] = True
+            self.compile_flags['has_main'] = True
             if self._compile_dirs["nesting"] >= 0:
                 self.add_tabs_level()
             else:
@@ -100,7 +109,7 @@ class Compiler:
             self._compile_dirs["in_class"] = False
 
         if "Your faithful student, " in line:
-            self._compile_flags["has_end"] = True
+            self.compile_flags["has_end"] = True
             return ""
 
         match = re.search(r'Did you know that (.*) is (.*)\?', line)
