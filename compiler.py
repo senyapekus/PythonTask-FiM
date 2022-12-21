@@ -29,11 +29,9 @@ class Compiler:
         else:
             to_open = "py_program/{}".format(self.get_compiled_file_name())
 
-        print(to_open)
-
         with open(to_open, "w") as compiled_file:
             for line in self._text_lines:
-                if "    b" in line:
+                if "    b" in line or "    b\n" in line:
                     has_breakpoint = True
                     line = line.replace('    b', '')
                     self._compiled_lines.append("%sbreakpoint()" % self.get_count_tabs())
@@ -54,8 +52,14 @@ class Compiler:
 
             compiled_file.writelines(["%s\n" % line for line in self._compiled_lines])
 
+        if "test_" in file_name:
+            to_debug_open = "{}".format(os.path.abspath(file_name)).replace("test", "py_program", 1)\
+                .replace("test_", "test_debug_", 1)
+        else:
+            to_debug_open = "py_program/example_debug.py"
+
         if has_breakpoint:
-            with open("py_program/example_debug.py", "w") as compiled_debug_file:
+            with open(to_debug_open, "w") as compiled_debug_file:
                 for line in self._compiled_lines:
                     if 'breakpoint()' not in line:
                         compiled_debug_file.write(line + '\n')
@@ -73,6 +77,9 @@ class Compiler:
 
     def delete_tabs_level(self):
         self._compile_dirs["nesting"] -= 4
+
+    def get_inf_breakpoint(self):
+        return has_breakpoint
 
     def compile_line(self, line, count_line):
         signs = {"was like": '==',
