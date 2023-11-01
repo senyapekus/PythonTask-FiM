@@ -1,13 +1,18 @@
+""" controller in mvc-pattern """
+
+
 import os
-from tkinter import *
 import tkinter as tk
+from tkinter import *
 from tkinter.scrolledtext import ScrolledText
+
 import compiler
 
-breakpoint_count = 0
+BREAKPOINT_COUNT = 0
 
 
 class Controller:
+    """ init controller """
     def __init__(self, model, view):
         self.answ = ""
         self.model = model
@@ -16,6 +21,7 @@ class Controller:
         self.entry_text = ""
 
     def start_program(self):
+        """ start the program """
         self._py_window = Tk()
         self._py_window.geometry('600x500')
         self._py_window.title('Отправить в таком виде?')
@@ -40,8 +46,9 @@ class Controller:
             self.print_py_program("py_program/example_debug.py")
         else:
             self.print_py_program("py_program/example.py")
-            
+
     def print_py_program(self, py_file):
+        """ print python program """
         with open(py_file, "r", encoding='utf8') as p_file:
             text = p_file.readlines()
         for i in text:
@@ -68,13 +75,14 @@ class Controller:
         get_answer_button.pack()
 
     def print_answer(self):
-        global breakpoint_count
+        """ print answer """
+        global BREAKPOINT_COUNT
         result_window = Tk()
         result_window.geometry('460x300')
         result_window.title('Ответ')
 
         try:
-            if breakpoint_count != 0:
+            if BREAKPOINT_COUNT != 0:
                 pipe = os.popen("python py_program/example_debug.py")
                 res = pipe.read()
             else:
@@ -99,23 +107,23 @@ class Controller:
         py_answer.pack()
 
     def set_breakpoint(self, event):
-        global breakpoint_count
+        global BREAKPOINT_COUNT
 
-        breakpoint_count += 1
+        BREAKPOINT_COUNT += 1
         line = self.view.entry.index("insert").partition(".")[0]
         self.view.entry.insert(f"{line}.end", "    b")
         self.view.entry.tag_add('breakpoint', f"{line}.0", f"{line}.end")
         self.view.entry.tag_config('breakpoint', background='#B22222')
 
     def delete_breakpoint(self, event):
-        global breakpoint_count
+        """ delete breakpoint """
+        global BREAKPOINT_COUNT
 
         line = self.view.entry.index("insert").partition(".")[0]
         text = self.view.entry.get(f"{line}.0", f"{line}.end")
         if text[-5:] == "    b":
-            breakpoint_count -= 1
+            BREAKPOINT_COUNT -= 1
             self.view.entry.tag_delete('sel')
             self.view.entry.delete(f"{line}.{len(text) - 5}", f"{line}.end")
             self.view.entry.tag_add('del_breakpoint', f"{line}.0", f"{line}.end")
             self.view.entry.tag_config('del_breakpoint', background='white')
-            

@@ -1,9 +1,13 @@
+""" view in mvc-pattern """
+
+
 from tkinter import *
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 
 
 class View(ttk.Frame):
+    """ create view """
     def __init__(self, parent):
         super().__init__(parent)
 
@@ -37,6 +41,7 @@ class View(ttk.Frame):
         self.controller = None
 
     def set_controller(self, controller):
+        """ controller """
         self.controller = controller
 
         self.do_work_button.configure(command=self.controller.start_program)
