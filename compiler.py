@@ -53,7 +53,8 @@ class Compiler:
             compiled_file.writelines(["%s\n" % line for line in self._compiled_lines])
 
         if "test_" in file_name:
-            to_debug_open = "{}".format(os.path.abspath(file_name)).replace("test", "py_program", 1)\
+            to_debug_open = "{}".format(os.path.abspath(file_name))\
+                .replace("test", "py_program", 1)\
                 .replace("test_", "test_debug_", 1)
         else:
             to_debug_open = "py_program/example_debug.py"
@@ -142,7 +143,9 @@ class Compiler:
             if self._compile_dirs["in_func"]:
                 self._count_func += 1
 
-            return "%sprint(%s[%s])" % (self.get_count_tabs(), match.group(2), int(match.group(3))-1)
+            return "%sprint(%s[%s])" % (self.get_count_tabs(),
+                                        match.group(2),
+                                        int(match.group(3))-1)
 
         match = re.search(r'I remember (.*) name ([0-9]+) as (.*)', line)
         if match:
